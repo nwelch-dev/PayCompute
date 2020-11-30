@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PayCompute.Persistence;
+using PayCompute.Services;
+using PayCompute.Services.Implementation;
 
 namespace PayCompute
 {
@@ -34,6 +36,7 @@ namespace PayCompute
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddScoped<IEmployeeService, EmployeeService>(); // Adding this service to the 'services' container, allows it to be available for Dependency Injection
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +55,7 @@ namespace PayCompute
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCookiePolicy();
 
             app.UseRouting();
 
