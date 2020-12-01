@@ -38,6 +38,13 @@ namespace PayCompute.Controllers
             return View(employees);
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var model = new EmployeeCreateViewModel();
+            return View(model);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken] // Prevents cross-site Request Forgery Attack
         public async Task<IActionResult> Create(EmployeeCreateViewModel model)
