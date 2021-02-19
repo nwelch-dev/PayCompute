@@ -95,7 +95,7 @@ namespace PayCompute.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var employee = _employeeService.GetByID(id);
+            var employee = _employeeService.GetById(id);
 
             if (employee == null)
             {
@@ -131,7 +131,7 @@ namespace PayCompute.Controllers
         {
             if (ModelState.IsValid)
             {
-                var employee = _employeeService.GetByID(model.Id);
+                var employee = _employeeService.GetById(model.Id);
                 if (employee == null)
                 {
                     return NotFound();
@@ -174,7 +174,7 @@ namespace PayCompute.Controllers
 
         public IActionResult Detail(int id)
         {
-            var employee = _employeeService.GetByID(id);
+            var employee = _employeeService.GetById(id);
 
             if (employee == null)
             {
@@ -208,7 +208,7 @@ namespace PayCompute.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var employee = _employeeService.GetByID(id);
+            var employee = _employeeService.GetById(id);
 
             if (employee == null)
             {
